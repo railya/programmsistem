@@ -6,8 +6,10 @@
     $text_arr = explode(" ", $text);
     $r_text = '';
 
-    foreach($text_arr as $value) {
-	    if ($value) {
+    foreach($text_arr as $value)
+    {
+	    if ($value) 
+	    {
 		    $r_text . = ' ' . $value;
 	    }
     }
