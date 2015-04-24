@@ -1,18 +1,17 @@
 <?php
+    header('Content-Type: text/plain');
 
-header('Content-Type: text/plain');
+    $text = isset($_GET['text']) ? $_GET['text'] : '';
 
-$text = isset($_GET['text']) ? $_GET['text'] : '';
+    $text_arr = explode(" ", $text);
+    $r_text = '';
 
-$text_arr = explode(" ", $text);
-$r_text = '';
+    foreach($text_arr as $value) {
+	    if ($value) {
+		    $r_text . = ' ' . $value;
+	    }
+    }
 
-foreach($text_arr as $value) {
-	if ($value) {
-		$r_text .= ' ' . $value;
-	}
-}
+    echo trim($r_text);
 
-echo trim($r_text);
-
-//echo trim(preg_replace('/\s{2,}/', ' ', $text));
+    //echo trim(preg_replace('/\s{2,}/', ' ', $text));
