@@ -6,11 +6,11 @@
     $textArr = explode(" ", $text);
     $rText = '';
 
-    foreach($text_arr as $value)
+    foreach($textArr as $value)
     {
         if ($value) 
         {
-            $rText . = ' ' . $value;
+            $rText .= ' ' . $value;
         }
     }
 
