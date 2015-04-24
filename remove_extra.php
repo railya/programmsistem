@@ -3,17 +3,17 @@
 
     $text = isset($_GET['text']) ? $_GET['text'] : '';
 
-    $text_arr = explode(" ", $text);
-    $r_text = '';
+    $textArr = explode(" ", $text);
+    $rText = '';
 
     foreach($text_arr as $value)
     {
-	    if ($value) 
-	    {
-		    $r_text . = ' ' . $value;
-	    }
+        if ($value) 
+        {
+            $rText . = ' ' . $value;
+        }
     }
 
-    echo trim($r_text);
+    echo trim($rText);
 
     //echo trim(preg_replace('/\s{2,}/', ' ', $text));
