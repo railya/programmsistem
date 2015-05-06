@@ -9,3 +9,4 @@ $vars = array
 );
 
 echo getView('index.html', $vars);
+buildLayout('index.html', $vars);
