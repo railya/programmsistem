@@ -5,7 +5,7 @@
 *@param array $vars
 *@return string
 */
-function getView($templateName, $vars)
+/*function getView($templateName, $vars)
 {
   $content='';
   $templateFilePath = TEMPLATE_DIR . "/" . $templateName;
@@ -23,7 +23,16 @@ function getView($templateName, $vars)
           }
       }
       return $content;    
-}
+}*/
+ function getView($templateName, $vars)
+ {
+      $smarty = new Smarty();
+      $smarty->setTemplateDir(TEMPLATE_DIR);
+      $smarty->setCompileDir(TEMPLATE_C_DIR);
+      
+      $smarty->assign($vars);
+      return $smarty->fetch($templateName);
+ }
 
 function buildLayout($templateName, $vars)
 {
