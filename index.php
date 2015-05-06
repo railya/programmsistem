@@ -2,11 +2,19 @@
 
 require_once('include/common.inc.php');
 
+$users = array 
+(
+    array('name' => 'Sarah', 'surname' => 'Rever', 'age' => 32),    
+    array('name' => 'Chuck', 'surname' => 'Norris', 'age' => 142),
+    array('name' => 'Dart',  'surname' => 'Veider', 'age' => 356)
+);
+
 $vars = array
 (
     'headline' => 'Template Engine',
     'name' => 'Sarah'
+    'users' => $users
 );
 
-echo getView('index.html', $vars);
+/*echo getView('index.html', $vars);*/
 buildLayout('index.html', $vars);
