@@ -23,4 +23,15 @@ function getView($templateName, $vars)
           }
       }
       return $content;    
-}      
+}
+
+function buildLayout($templateName, $vars)
+{
+    $content = getView($templateName, $vars);
+    
+    $vars = array
+    (
+        'content' => $content
+    );
+    echo getView('layout.html', $vars);
+}
