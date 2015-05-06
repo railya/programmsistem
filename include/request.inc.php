@@ -1,4 +1,5 @@
 ﻿<?php
+
     function GetParamFromGet ($paramName, $dafaultvalue = '')
     {
         $result = $defaultValue
