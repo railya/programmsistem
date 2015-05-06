@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>My Form!</title>
+   <!-- <link href="./stylesheet.css" rel="stylesheet" /> -->
+<style>
+div 
+{
+	position: relative;
+	width: 100px;
+	left: 300px;
+	margin: 0px 0px -10px 0px;
+	pading: 0px 0px -10px 0px;
+}	
+input[type="submit"]
+{
+	float: left;
+	left: 300px;
+	position: relative;
+	width: 60px;
+	height: 30px;
+	background: #6169CC;
+}
+input[type="text"]
+{
+	position: relative;
+	display: inline-table;
+	left: 300px;
+	color: green;
+	top: -20px;
+}
+label 
+{
+	float: left;
+	position: relative;
+	display: inline-table;
+	font-size: 14pt;
+	font-family: 'Times New Roman', Times, send-serif;
+	color: red;
+}
+.main
+{
+	width: 200px;
+	height: 200px;
+	border: 1px solid #ffffff;
+}
+</style>   
+</head>
+<body>     
+  <label>Anketa:</label>
+  <div id="main" class="main">
+    <div class="firstName">
+	  <label>First Name:</label>
+	  <input type="text" name="user_first_name" id="user_first_name" value="" />
+	</div>
+	<div class="lastName">
+	  <label>Last Name:</label>
+	  <input type="text" name="user_last_name" id="user_last_name" value="" />
+    </div>
+    <div class="emailBox">
+	  <label>E-mail:*</label>
+	  <input type="text" name="user_email" id="user_email" value="" />
+	</div>
+      <div class="ageBox">
+	    <label>Age:*</label>
+		<input type="number" name="mepr_user_age" id="mepr_user_age" value="" />
+	</div>
+	<input type="submit" name="wp-submit" id="wp-submit" class="submit-button mepr_front_button" value="Sign Up" />
+  </div>	
+</body>
+</html>	
