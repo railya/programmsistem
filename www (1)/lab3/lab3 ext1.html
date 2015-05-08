@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>My szkielet page!</title>
+   <!-- <link href="./stylesheet.css" rel="stylesheet" /> -->
+<style>
+body
+{
+    background: #fffff;
+	font-weight: bold;
+	font-size: 16px
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0 auto;
+	padding: 0;
+}
+#header
+{
+	background: #009382;
+	width: 100%;
+	height: 180px;
+}	
+#middle
+{
+	width: 100%;
+	height: 570px;
+}
+#content
+{
+	position: relative;
+	float: right;
+	left: 0px;
+	background: #A07B00;
+	width: 90%;
+	height: 570px;
+}
+#sidebar
+{
+	position: absolute;
+	float: left;
+	background: #FC7A00;
+	width: 10%;
+	height: 450px;
+}
+h2 
+{
+	margin: 0px 0px 0px 0px;
+	font-family: 'Times New Roman', Times, sans-serif;
+}
+#footer
+{
+	position: relative;
+	background: #DDD377;
+	width: 100%;
+	height: 120px;
+}
+</style>   
+</head>
+<body>
+<div id="header"><h1>Header</h1></div>
+<div id="middle">
+    <div id="content"><h2>Content</h2><div>{$content}</div></div>
+    <div id="sidebar"><h2>Sidebar</h2></div>
+</div>
+<div id="footer"><h2>Footer</h2></div>
+</body>
+</html>

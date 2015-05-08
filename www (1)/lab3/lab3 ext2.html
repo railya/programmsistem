@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>My Table</title>
+<link href="./style.css" rel="stylesheet" /> 
+</head>
+<body>   
+<p><table border="1" cellspacing="0" cellpadding="2" width="600" >
+  <tr>
+    <td>sin</td>
+    {foreach from=$table.0 key=minute item=minutes}
+      <td>{$minute}'</td>
+    {/foreach}
+  </tr>
+  {foreach from=$table key=degree item=degrees}
+    <tr>
+      <td>{$degree}&deg;</td>
+      {foreach from=$degrees key=minute item=value}
+        <td>{$value}</td>
+      {/foreach} 
+    </tr>
+  {/foreach}
+</table>
+<body>
+</html>

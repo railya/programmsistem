@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="bootstrap.css">
+<meta name="viewport" content="width=device-width, initial-scale=1"> <!--zoom for phone -->
+</head>
+<body>
+  <div class="container">
+    <h2>List Group to User's registration</h2>
+    <div class="list-group">
+        {foreach item=item from=$users}
+        <a href="survey_info.php?email={$item}" style="width:30%;" class="list-group-item">{$item}</a>
+        {/foreach}
+    </div>
+  </div>
+</body>
+</html>

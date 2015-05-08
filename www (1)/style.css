@@ -1,0 +1,23 @@
+table
+{
+	font-family: Courier New, send-serif;
+	font-size: 12pt;
+}
+tr:nth-child(odd) /*нечетные элементы (2n+1)*/
+ {
+    background-color: #fefbe8; 
+} 
+tr:nth-child(1)  /*1 элемент*/
+{
+    background-color: #e3e3e3;  
+    color: #000000;
+} 
+tr td:first-child  
+{
+    background: #e3e3e3;
+    color: #000000;
+}	
+td   /*рамка ячеек таблицы*/
+{
+	border: 1px dashed gray;
+}

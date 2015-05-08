@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="bootstrap.css">
+<!--<link rel="stylesheet" href="style_form.css"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1"> <!--zoom for phone -->
+<style>
+.placeholder(@color: @input-color-placeholder) 
+{
+	&::-moz-placeholder           { color: @color; } // Firefox
+	&:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+	&::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+}
+input[type="text"],
+input[type="number"],
+input[type="email"]
+{
+	background-color: #d3d3d3 !important; 
+}
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="email"]:hover
+{
+	background-color:#ffffff !important;
+}
+#inputEmail3
+{
+	margin-bottom: 15px; !important;
+}
+</style>
+</head>
+<body>
+<form class="form-horizontal" role="form" action="survey_saver.php" method="GET">
+  <div class="form-group">
+    <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputFirstName" placeholder="Alex" name="first_name" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputLastName" placeholder="Smith" name="last_name" />
+    </div>
+  </div>  
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Age</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputAge" name="age" />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Sing In</button>
+    </div>
+  </div>
+</form>	  
+</body>
+</html>
