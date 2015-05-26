@@ -1,0 +1,11 @@
+SELECT dvd_id, title, production FROM dvd WHERE production = 2010 ORDER BY title ASC;
+
+SELECT dvd.dvd_id, dvd.title, dvd.production FROM dvd 
+JOIN offer ON dvd.dvd_id = offer.dvd_id
+WHERE offer.offer_date < NOW() AND offer.return_date > NOW();
+
+SELECT customer.first_name, customer.last_name, customer.passport_code, customer.registration_date, dvd.dvd_id, dvd.title, dvd.production FROM customer 
+JOIN offer ON customer.customer_id = offer.customer_id
+JOIN dvd ON dvd.dvd_id = offer.dvd_id
+WHERE YEAR(offer.offer_date) = YEAR(NOW());
+
