@@ -1,0 +1,99 @@
+*************** Лабораторная работа 6+*************************************
+
+=====================================================================
+Задания.
+---------------------------------------------------------------------
+
+1.  Table "PC"
+#15 id  cpu(MHz)  memory(Mb)  hdd(Gb)
+    1      1600          2000             500
+    2      2400          3000             800
+    3      3200          3000             1200
+    4      2400          2000             500 
+   
+    1) Тактовые частоты CPU тех компьютеров, у которых объем памяти 3000 Мб. Вывод: id, cpu, memory
+
+SELECT `id`,`cpu(MHz)`, `memory(Mb)` FROM `pc` WHERE `memory(Mb)` = 3000;
+
+    2) Минимальный объём жесткого диска, установленного в компьютере на складе. Вывод: hdd
+
+SELECT MIN(`hdd(Gb)`) FROM `pc`;
+
+    3) Количество компьютеров с минимальным объемом жесткого диска, доступного на складе. Вывод: count, hdd
+
+SELECT COUNT(`id`), `hdd(Gb)` FROM `pc` WHERE `hdd(Gb)` = (SELECT MIN(`hdd(Gb)`) FROM `pc`);
+
+
+2.  Есть таблица следующего вида:
+#30 CREATE TABLE track_downloads ( 
+      download_id BIGINT(20) NOT NULL AUTO_INCREMENT, 
+      track_id INT NOT NULL, 
+      user_id BIGINT(20) NOT NULL, 
+      download_time TIMESTAMP NOT NULL DEFAULT 0, 
+       
+      PRIMARY KEY (download_id) 
+    ); 
+    Напишите SQL-запрос, возвращающий все пары (download_count, user_count), 
+    удовлетворяющие следующему условию: 
+    user_count — общее ненулевое число пользователей, сделавших 
+    ровно download_count скачиваний 19 ноября 2010 года.
+
+SELECT COUNT(`download_id`) as download_count, COUNT(`user_id`) as user_count FROM `track_downloads`
+WHERE DAY(`download_time`) = 19 AND MONTH(`download_time`) = 11 AND YEAR(`download_time`) = 2010
+
+
+3. Опишите разницу типов данных DATETIME и TIMESTAMP
+#10
+
+4.  Необходимо создать таблицу студентов (поля id, name) и таблицу курсов (поля id, name). Каждый студент может посещать несколько курсов. Названия курсов и имена студентов - произвольны.
+#20 Написать SQL запросы: 
+    1. отобразить количество курсов, на которые ходит более 5 студентов
+
+SELECT COUNT(*) FROM course WHERE id IN (
+SELECT course.id
+  FROM course, student_course 
+  WHERE course.id = student_course.course_id 
+  GROUP BY course_id
+  HAVING COUNT(*) > 5)
+
+    2. отобразить все курсы, на которые записан определенный студент.
+
+SELECT c.name FROM `student_course` sc 
+JOIN course c ON sc.course_id = c.id
+WHERE sc.student_id = 2
+
+
+5. Может ли значение в столбце(ах), на который наложено ограничение foreign key, равняться null?
+#5 
+
+6. Как удалить повторяющиеся строки с использованием ключевого слова Distinct?
+#5 
+
+SELECT DISTINCT `memory(Mb)` FROM `pc`
+
+
+7.  Есть две таблицы:
+#10 users - таблица с пользователями (users_id, name)
+    orders - таблица с заказами (orders_id, users_id, status)
+    1) Выбрать всех пользователей из таблицы users, у которых ВСЕ записи в таблице orders имеют status = 0
+
+
+SELECT * FROM `users`
+WHERE user_id IN (
+SELECT user_id FROM orders WHERE status = 0
+) AND user_id NOT IN(
+SELECT user_id FROM orders WHERE status = 1
+);
+
+
+    2) Выбрать всех пользователей из таблицы users, у которых больше 5 записей в таблице orders имеют status = 1
+
+select * from users where user_id in 
+(select user_id 
+from orders
+where status=1
+group by user_id
+having count(*)>5)
+
+8.  В чем различие между выражениями HAVING и WHERE?
+#10
