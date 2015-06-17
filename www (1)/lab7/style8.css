@@ -1,0 +1,87 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body
+{
+    color: #757575;
+}
+
+.contact_us 
+{
+    width: 321px;
+    height: 283px;
+    margin: 20px 30px;
+    padding-left: 43px;
+    border-left: solid 1px #e5e5e5;
+}
+
+.contact_us h2
+{
+    padding-left: 8px;
+    font: 23px Arial;
+    padding-bottom: 11px;
+    color: #565656;
+}
+
+.contact_us ul
+{
+    list-style:none;
+}
+
+.contact_us li
+{
+    font: normal 14px Tahoma;
+    border-bottom: dashed 1px #cccccc;
+    width: 185px;
+    padding: 14px 0 12px 53px;
+    line-height: 17px;
+    letter-spacing: 1.3px;
+}
+
+li.phone_number,
+li.fax_number
+{
+    font-weight: bold;
+    letter-spacing: normal;
+}
+
+li.company_name,
+li.address
+{
+    border: none;
+}
+
+.phone_number
+{
+    padding-top: 16px;
+    background: url(./images/ico_phone.png) 14px 12px no-repeat;
+}
+
+.fax_number
+{
+    background: url(./images/ico_fax.png) 9px 9px no-repeat;
+}
+
+.email
+{
+    background: url(./images/ico_mail.png) 8px center no-repeat;
+}
+
+li.company_name
+{
+    background: url(./images/ico_address.png) 6px 7px no-repeat;
+    font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 9px;
+    line-height: 19px;
+}
+
+li.address
+{
+    padding-top: 0;
+    line-height: 22px;
+}

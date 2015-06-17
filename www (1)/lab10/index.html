@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+<head>
+  <title>Task10</title>
+  <meta charset="utf-8"> 
+</head>
+<body>
+  <h1 id="helloline">Hello</h1>
+  <input type="text" id="name" value="" size="25" placeholder="Enter your name">
+  <input type="button" id="btn_js" value="Greeting" onClick="EnterName(),ChangeText();">
+  <script>
+    var client; 
+	
+    function EnterName() 
+	{
+        client = document.getElementById('name').value;
+	    if (client == "")
+	    {
+	        alert("Enter your name,please!");
+			return false;
+	    }else
+	    {
+	        client;
+	    }
+	}
+	function ChangeText()
+	{
+	    if (client !== '')
+  	    {
+	        var zamena = document.getElementById('helloline').innerHTML;
+            helloline.innerHTML = " JavaScript is greeting your,"+client+"!"; 
+	    }else
+        { 
+			console.log("Houston you have a problem!");
+			return;
+		}	
+    }		
+  </script>
+</body>
+</html>

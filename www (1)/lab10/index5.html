@@ -1,0 +1,146 @@
+ <!Doctype html>
+<html>
+<head>
+  <title>Task10</title>
+  <meta charset="utf-8"> 
+    <script src="./jquery-2.1.4.min.js"></script>
+<style>  
+  #circle
+  {
+    position: absolute;
+	top: 100px;
+	left: 100px;
+	padding: 10px;
+    width: 120px;
+    height: 120px;
+    background-image: url(./images/cat1.jpg);
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+  }
+  #xy
+  {
+    position: absolute;
+	top: 10px;
+	left: 00px;
+	padding: 10px;
+    width: 120px;
+    height: 120px;
+  }
+</style>
+</head>
+<body>
+  <div id="circle"  onMouseOver=" move()"></div>
+<script>
+function move()
+{
+    dx = 8;                 //координаты приращения по оси 
+	dy = 3;
+checkcoordDiv();
+}	
+function checkcoordDiv() 
+{
+	var br = circle.getBoundingClientRect();  // определение координат дива
+    console.log("Top:"+br.top+", Left:"+br.left+", Right:"+br.right+", Bottom:"+br.bottom);	
+	var x = br.left;                         // текущие координаты 
+	var y = br.top;
+	var a=circle.style.left = y+dy;          // новые координаты
+	var b=circle.style.top = x+dx;
+	console.log(a+'px'+b+'px');
+}
+
+	ns4 = (document.layers)? true:false
+    ie4 = (document.all)? true:false
+
+function init() // координаты курсора
+{
+        if (ns4) {document.captureEvents(Event.MOUSEMOVE);}
+        document.onmousemove=mousemove;
+}
+function mousemove(event)       //mousemove- движение мышью
+{
+        var mouse_x = y = 0;
+        if (document.attachEvent != null) 
+		{
+            mouse_x = window.event.clientX;
+            mouse_y = window.event.clientY;
+        }
+		else if (!document.attachEvent && document.addEventListener)
+		{
+            mouse_x = event.clientX;
+            mouse_y = event.clientY;
+        }
+        status="x = " + mouse_x + ", y = " + mouse_y;
+		/*console.log(status);*/
+}
+init();
+/*
+$(document).ready(function()
+{
+    var offset_cursor = 25;   
+    var border = 10;
+    
+    $(document).mousemove(function(e)
+	{
+      
+		var parrent_width = $(document).width();
+		var parrent_height = $(document).height();
+
+		var offset_top = $('body').offset().top;
+		var offset_left = $('body').offset().left;
+		var offset_right = $('body').offset().right;
+
+		var circle_width = $('#circle').width();
+		var circle_height = $('#circle').height();
+		
+		var x = e.pageX - offset_left;
+		var y = e.pageY - offset_top + offset_cursor;
+		
+		if((e.pageX + circle_width) > (offset_left + parrent_width))
+		{        
+			x = (parrent_width - circle_width) - border;         
+		}
+		if((e.pageX < (offset_left + border)))
+		{
+			x = border;    
+		}
+		if((e.pageY + circle_height + offset_cursor) > (offset_top+ parrent_height) )
+		{          
+			y = parrent_height - circle_height-border;          
+		}          
+	   $('#circle').clearQueue();
+		  $('#circle').animate({left:x,top:y},100);
+	});    
+    
+    $(document).mouseout(function(e)
+	{        
+        $('#circle').animate({top:'180px',left:'15px'},500);          
+    });    
+});*/
+$(function() 
+{
+    wW = $(document).width();
+    wH = $(document).height();
+
+	oT = $('body').offset().top;
+	oL = $('body').offset().left;
+
+	fW = $('#circle').width();
+	fH = $('#circle').height();
+
+	$(document).mousemove(function(e)
+	{
+		x = e.pageX-fW/2;
+		y = e.pageY-fH/2;
+
+		if (x >= wW+oL-fW) {x = wW+oL-fW;};
+		if (x <= oL) {x = oL;};
+		if (y >= wH+oT-fH) {y = wH+oT-fH;};
+		if (y <= oT) {y = oT;};
+
+		$('#circle').css('top', y).css('left', x);
+	});
+});
+</script>
+</body>
+</html>	

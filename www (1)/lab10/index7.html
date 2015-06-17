@@ -1,0 +1,179 @@
+ <!Doctype html>
+<html>
+<head>
+  <title>Task10</title>
+  <meta charset="utf-8"> 
+  <script src="./jquery-2.1.4.min.js"></script> 
+<style>  
+  .conteiner
+  {
+    height: 470px;
+	width: 540px;
+    margin: auto auto;
+  }
+  .box div
+  {
+    position: relative;
+	cursor: pointer;
+    height: 143px;
+    width: 163px;
+	float: left;
+    background-color: #ffffff;
+    margin: 5px 5px 5px 5px;
+	border: 1px solid black;
+	display: inline-block;
+	font-size: 20px;
+	font-family: Arial sand-serif;
+	text-align: center;
+	vertical-align: middle;
+  }
+  .box_1
+  {
+    background-image: url(./image/J53s_part1x1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+  }
+  .box_2
+  {
+    background-image: url(./image/J53s_part1x2.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+  }
+  .box_3
+  {
+    background-image: url(./image/J53s_part1x3.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;	
+  }
+  .box_4
+  {
+    background-image: url(./image/J53s_part2x1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;	
+  }
+  .box_5
+  {
+    background-image: url(./image/J53s_part2x2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;	
+  }
+  .box_6
+  {
+    background-image: url(./image/J53s_part2x3.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;	
+  }
+  .box_7
+  {
+    background-image: url(./image/J53s_part3x1.jpg);
+		background-repeat: no-repeat;
+	background-size: cover;
+  }
+  .box_8
+  {
+    background-image: url(./image/J53s_part3x2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;	
+  }
+  .box_9
+  {
+    background-image: url(./image/J53s_part3x3.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;	
+  }
+</style>
+</head>
+<body>
+<div id="conteiner" class="conteiner" onclick="triggeredTag(event)">
+  <div id="main_1" class="box">
+    <div id="div_1" class="box_1" onclick="rokir('#div_1','#div_2')">1</div>
+	<div id="div_2" class="box_2">2</div>
+	<div id="div_3" class="box_3">3</div>
+  </div>	
+  <div id="main_2" class="box">  
+	  <div id="div_4" class="box_4">4</div>
+	  <div id="div_5" class="box_5">5</div>
+	  <div id="div_6" class="box_6">6</div>
+  </div>	  
+  <div id="main_2" class="box">
+	  <div id="div_7" class="box_7">7</div>
+	  <div id="div_8" class="box_8">8</div>
+	  <div id="div_9" class="box_9">9</div>
+  </div>
+</div>  
+<script>/*
+init();
+function init()    
+{
+   var box = document.getElementById('div_1');
+
+    box.onmousedown = function(e) 
+	{
+		var coords = box.getBoundingClientRect();
+	    var x = coords.left;                         
+	    var y = coords.top;
+		console.log(x+'px'+y+'px')
+        var shiftX = e.pageX - x;
+        var shiftY = e.pageY - y;
+
+       div_1.style.position = 'absolute';
+	   conteiner.insertBefore(div_2, conteiner.children[1]);
+        moveAt(e);
+
+        div_1.style.zIndex = 1000; 
+
+        function moveAt(e)
+		{
+            div_1.style.left = e.pageX - shiftX + 'px';
+            div_1.style.top = e.pageY - shiftY + 'px';
+        }
+        document.onmousemove = function(e)
+		{
+            moveAt(e);
+        };
+        box.onmouseup = function()
+		{
+            document.onmousemove = null;
+            box.onmouseup = null;
+        };
+
+    }
+    box.ondragstart = function() 
+	{
+        return false;
+    };
+}*/
+var box_1 = document.getElementById('div_1');
+var box_2 = document.getElementById('div_2');
+
+var timerId = setInterval(function coordDivs(e)   // определение координат 2-х дивов
+{
+    var coords_1 = box_1.getBoundingClientRect();
+	var coords_2 = box_2.getBoundingClientRect();
+	
+	var x_1 = coords_1.left;                         
+    var y_1 = coords_1.top;
+    console.log(x_1+'px'+y_1+'px');	
+    var x_2 = coords_2.left;                         
+    var y_2 = coords_2.top;
+    console.log(x_2+'px'+y_2+'px');
+}, 2000);
+
+function rokir(id1,id2)  // перестановка 2-х дивов
+{	
+	id1=$(id1);
+	id2=$(id2);
+
+	id2.after(id1.clone(true)); 
+	id1.replaceWith(id2);     
+}
+//rokir("#div_1","#div_2");
+//rokir("#idv_2","#div_3"); 
+function triggeredTag(event)     // определение нажатого элемента 
+{
+    var x = event.target;
+    console.log(x.tagName);	
+}
+</script>
+</body>
+</html>	
